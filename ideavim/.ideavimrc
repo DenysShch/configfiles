@@ -1,0 +1,92 @@
+"set idearefactormode=keep
+"set ideajoin
+"set incsearch
+
+" Install plugins
+" :PlugInstall
+
+
+Plug 'terryma/vim-multiple-cursors'
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+
+Plug 'ppe/vim-surround'
+" replace -> cs"'
+" replace -> cs'<a>
+" remove  -> ds" (
+
+"turn relative line numbers on
+set number relativenumber
+set clipboard+=unnamed  " use the clipboards of vim and win
+set paste               " Paste from a windows or from vim
+"":set virtualedit=all
+
+Plug 'preservim/nerdtree'
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+inoremap jk <esc>
+nnoremap ,. :nohlsearch<CR>
+nnoremap x "_x
+nnoremap dw vb"_d
+nnoremap <C-a> gg<S-v>G
+
+let mapleader =" "
+
+actions
+" Search
+nmap ff         <action>(SearchEverywhere)
+nmap fg         <action>(RecentFiles)
+
+" Code completion
+nmap gj         <action>(Generate)
+nmap ge         <action>(GotoNextError)
+nmap gi         <action>(QuickJavaDoc)
+nmap gd         <action>(GotoDeclaration)
+
+" Idea Run
+nmap <leader>s  <action>(QuickChangeScheme)
+nmap <leader>r  <action>(ContextRun)
+nmap <leader>r  <action>(RunClass)
+nmap <leader>t  <action>(ActivateTerminalToolWindow)
+nmap <leader>j  <action>(InsertLiveTemplate)
+nmap rd         <action>(PublishGroup.Upload)
+
+" Editor
+nmap er         <action>(RenameElement)
+nmap ei         <action>(EditorIncreaseFontSize)
+nmap ed         <action>(EditorDecreaseFontSize)
+
+" Debug
+nmap dB         <action>(Debugger.RemoveAllBreakpointsInFile)
+nmap db         <action>(ToggleLineBreakpoint)
+nmap dr         <action>(Debug)
+nmap dR         <action>(Stop)
+nmap dn         <action>(Resume)
+
+" Collapse
+nmap rc         <action>(CollapseRegionRecursively)
+nmap ru         <action>(ExpandRegionRecursively)
+
+" Modes
+nmap mz         <action>(ToggleZenMode)
+nmap md         <action>(ToggleDistractionFreeMode)
+nmap mf         <action>(FocusMode.ToggleFocusModeForCurrentFile)
+nmap mF         <action>(ToggleFullScreen)
+
+" Tab movements
+nmap <C-left>   <action>(PreviousTab)
+nmap <C-right>  <action>(NextTab)
+nmap <leader>c  <action>(CloseEditor)
+nmap sr         <action>(OpenInRightSplit)
+nmap sn <C-w>w
+nmap sh <C-w>h
+nmap sl <C-w>l
+nmap sj <C-w>j
+nmap sk <C-w>k
+nnoremap ss :split<Return><C-w>w
+nnoremap sv :vsplit<Return><C-w>w
+
+" Increment/Decrement"
+nnoremap + <C-a>
+nnoremap - <C-x>
